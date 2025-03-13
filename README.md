@@ -2,8 +2,9 @@
 
 ### Database2 [Reamd.me](http://reamd.me/) ✅
 
-[<img src="](https://www.notion.so/Readme-md-1b55ac5f618c809daf81c8461b76e915?pvs=21)https://img.shields.io/badge/-readme.md-important?style=flat&logo=google-chrome&logoColor=white" /> [<img src="](https://www.notion.so/Readme-md-1b55ac5f618c809daf81c8461b76e915?pvs=21)https://img.shields.io/badge/-tech blog-blue?style=flat&logo=google-chrome&logoColor=white" /> [<img src="](https://www.notion.so/Readme-md-1b55ac5f618c809daf81c8461b76e915?pvs=21)https://img.shields.io/badge/release-v0.0.0-yellow?style=flat&logo=google-chrome&logoColor=white" />
-<br/> [<img src="](https://www.notion.so/Readme-md-1b55ac5f618c809daf81c8461b76e915?pvs=21)https://img.shields.io/badge/Project Period-2025.03.14~2025.06.20-green?style=flat&logo=&logoColor=white" />
+<img src="https://img.shields.io/badge/-readme.md-important?style=flat&logo=google-chrome&logoColor=white" /> <img src="https://img.shields.io/badge/-tech blog-blue?style=flat&logo=google-chrome&logoColor=white" /> <img src="https://img.shields.io/badge/release-v0.0.0-yellow?style=flat&logo=google-chrome&logoColor=white" />
+<br/> <img src="https://img.shields.io/badge/Project Period-2025.03.14~2025.06.20-green?style=flat&logo=&logoColor=white" />
+</div>
 
 </div>
 
