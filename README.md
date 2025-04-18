@@ -53,7 +53,7 @@
 <br />
 
 ## 💁‍♂️ 프로젝트 팀원
-|Backend|Backend|Backend|
-|:---:|:---:|:---:|
+|Backend|Backend|                   Backend                    |
+|:---:|:---:|:--------------------------------------------:|
 | ![](https://github.com/Yu-Jaeyoung.png?size=120) | ![](https://github.com/Boyeon-Shin.png?size=120) | ![](https://github.com/yenn222.png?size=120) |
-|[유재영](https://github.com/Yu-Jaeyoung)|[신보연](https://github.com/Boyeon-Shin)|[임예은](https://github.com/yenn222)|
+|[유재영](https://github.com/Yu-Jaeyoung)|[신보연](https://github.com/Boyeon-Shin)|     [임예은](https://github.com/whyenniii)      |
