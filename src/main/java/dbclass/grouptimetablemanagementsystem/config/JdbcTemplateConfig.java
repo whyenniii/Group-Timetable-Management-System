@@ -4,6 +4,7 @@ import dbclass.grouptimetablemanagementsystem.timetable.TimetableService;
 import dbclass.grouptimetablemanagementsystem.timetable.repository.TimetableRepository;
 import dbclass.grouptimetablemanagementsystem.timetable.repository.jdbctemplate.JdbcTemplateTimetableRepository;
 import dbclass.grouptimetablemanagementsystem.user.UserRepository;
+import dbclass.grouptimetablemanagementsystem.user.UserService;
 import dbclass.grouptimetablemanagementsystem.user.repository.JdbcTemplateUserRepository;
 import javax.sql.DataSource;
 
@@ -21,6 +22,11 @@ public class JdbcTemplateConfig {
     @Bean
     public UserRepository userRepository() {
         return new JdbcTemplateUserRepository(dataSource);
+    }
+
+    @Bean
+    public UserService userService() {
+        return new UserService(userRepository());
     }
 
     @Bean
