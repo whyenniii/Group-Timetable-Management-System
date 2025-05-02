@@ -1,0 +1,304 @@
+openapi: "3.1.0"
+info:
+  title: "Group_Timetable_Management_System API"
+  description: "Group_Timetable_Management_System API"
+  version: "1.0.0"
+  license:
+    name: WiSoft
+    url: http://wisoft.io
+externalDocs:
+  description: Github
+  url: https://github.com/whyenniii/Group-Timetable-Management-System
+servers:
+  - url: "https://localhost:8080"
+tags:
+  - name: timetables
+  - name: users
+paths:
+  /api/timetables:
+    post:
+      tags:
+        - timetables
+      summary: "POST api/timetables"
+      operationId: "createTimetable"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TimetableRequest"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Timetable"
+  /api/timetables/{id}:
+    get:
+      tags:
+        - timetables
+      summary: "GET api/timetables/{id}"
+      operationId: "getTimetable"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Timetable"
+    patch:
+      tags:
+        - timetables
+      summary: "PATCH api/timetables/{id}"
+      operationId: "updateTime"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TimetableRequest"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "integer"
+                format: "int32"
+    delete:
+      tags:
+        - timetables
+      summary: "DELETE api/timetables/{id}"
+      operationId: "deleteTimetable"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+  /api/timetables/{id}/search:
+    get:
+      tags:
+        - timetables
+      summary: "GET api/timetables/{id}/search"
+      operationId: "searchTimetable"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+        - name: "day"
+          in: "query"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Timetable"
+    patch:
+      tags:
+        - timetables
+      summary: "PATCH api/timetables/{id}/search"
+      operationId: "updateDay"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+        - name: "day"
+          in: "query"
+          required: true
+          schema:
+            type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TimetableRequest"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "integer"
+                format: "int32"
+  /api/timetables/search:
+    get:
+      tags:
+        - timetables
+      summary: "GET api/timetables/search"
+      operationId: "searchTimetableByDay"
+      parameters:
+        - name: "day"
+          in: "query"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Timetable"
+  /api/users:
+    post:
+      tags:
+        - users
+      summary: "POST api/users"
+      operationId: "createUser"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserRequest"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/User"
+    get:
+      tags:
+        - users
+      summary: "GET api/users"
+      operationId: "getUsers"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/User"
+  /api/users/{id}:
+    get:
+      tags:
+        - users
+      summary: "GET api/users/{id}"
+      operationId: "getUser"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/User"
+    delete:
+      tags:
+        - users
+      summary: "DELETE api/users/{id}"
+      operationId: "deleteUser"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+components:
+  schemas:
+    TimetableRequest:
+      type: "object"
+      properties:
+        day:
+          type: "string"
+        startTime:
+          type: "integer"
+          format: "int32"
+        endTime:
+          type: "integer"
+          format: "int32"
+        studentId:
+          type: "integer"
+          format: "int32"
+    Timetable:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        day:
+          type: "string"
+        startTime:
+          type: "integer"
+          format: "int32"
+        endTime:
+          type: "integer"
+          format: "int32"
+        studentId:
+          type: "integer"
+          format: "int32"
+    UserRequest:
+      type: "object"
+      properties:
+        userNumber:
+          type: "integer"
+          format: "int32"
+        userName:
+          type: "string"
+    User:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        userNumber:
+          type: "integer"
+          format: "int32"
+        userName:
+          type: "string"
