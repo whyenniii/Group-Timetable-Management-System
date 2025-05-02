@@ -1,9 +1,9 @@
 package dbclass.grouptimetablemanagementsystem.config;
 
-import dbclass.grouptimetablemanagementsystem.timetable.TimetableService;
-import dbclass.grouptimetablemanagementsystem.timetable.repository.TimetableRepository;
-import dbclass.grouptimetablemanagementsystem.timetable.repository.jdbctemplate.JdbcTemplateTimetableRepository;
+import dbclass.grouptimetablemanagementsystem.user.UserRepository;
+import dbclass.grouptimetablemanagementsystem.user.repository.JdbcTemplateUserRepository;
 import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,13 +16,9 @@ public class JdbcTemplateConfig {
     }
 
     @Bean
-    public TimetableRepository timetableRepository() {
-        return new JdbcTemplateTimetableRepository(dataSource);
+    public UserRepository userRepository() {
+        return new JdbcTemplateUserRepository(dataSource);
     }
 
-    @Bean
-    public TimetableService TimetablerService() {
-        return new TimetableService(timetableRepository());
-    }
 
 }
