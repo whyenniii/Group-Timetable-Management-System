@@ -15,6 +15,11 @@ public class TimetableService {
         return timetableRepository.save(timetable);
     }
 
+
+    List<Timetable> findAll() {
+        return timetableRepository.findAll();
+    }
+
     List<Timetable> getTimetableByStudentId(final int studentId) {
         return timetableRepository.findByStudentId(studentId);
     }

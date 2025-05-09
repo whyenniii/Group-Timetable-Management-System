@@ -29,6 +29,11 @@ public class TimetableController {
         return ResponseEntity.ok(timetableService.createTimetable(timetable));
     }
 
+    @GetMapping
+    public ResponseEntity<List<Timetable>> getAllTimetables() {
+        return ResponseEntity.ok(timetableService.findAll());
+    }
+
     //특정 학생 시간표 불러오기
     @GetMapping("/{id}")
     public ResponseEntity<List<Timetable>> getTimetable(@PathVariable("id") final int id) {
