@@ -20,4 +20,6 @@ public interface TimetableRepository {
     int delete(final int id);
 
     List<Timetable> findAllByday(String day);
+
+    Optional<Timetable> findByWeek(final int studentId, final int week);
 }

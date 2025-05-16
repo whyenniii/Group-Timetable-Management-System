@@ -23,14 +23,15 @@ public class JdbcTemplateTimetableRepository implements TimetableRepository {
 
     @Override
     public Timetable save(final Timetable timetable) {
-        String sql = "INSERT INTO timetable (day , start_time, end_time, student_id) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO timetable (week, day , start_time, end_time, student_id) VALUES (?, ?, ?, ?, ?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, new String[]{"id"});
-            ps.setString(1, timetable.getDay());
-            ps.setInt(2, timetable.getStartTime());
-            ps.setInt(3, timetable.getEndTime());
-            ps.setInt(4, timetable.getStudentId());
+            ps.setInt(1, timetable.getWeek());
+            ps.setString(2, timetable.getDay());
+            ps.setInt(3, timetable.getStartTime());
+            ps.setInt(4, timetable.getEndTime());
+            ps.setInt(5, timetable.getStudentId());
             return ps;
         }, keyHolder);
 
@@ -86,9 +87,17 @@ public class JdbcTemplateTimetableRepository implements TimetableRepository {
         return jdbcTemplate.query(sql, rowMapper(), day);
     }
 
+    @Override
+    public Optional<Timetable> findByWeek(final int studentId, final int week) {
+        String sql = "SELECT * FROM timetable WHERE student_id = ? AND week = ?";
+        Timetable timetable = jdbcTemplate.queryForObject(sql, rowMapper(), studentId, week);
+        return Optional.of(timetable);
+    }
+
     private RowMapper<Timetable> rowMapper() {
         return (rs, rowNum) -> new Timetable(
                 rs.getLong("id"),
+                rs.getInt("week"),
                 rs.getString("day"),
                 rs.getInt("start_time"),
                 rs.getInt("end_time"),

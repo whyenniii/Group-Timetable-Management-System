@@ -25,7 +25,7 @@ public class TimetableController {
     //시간표 추가
     @PostMapping
     public ResponseEntity<Timetable> createTimetable(@RequestBody final TimetableRequest request) {
-        Timetable timetable = new Timetable(request.getDay(), request.getStartTime(), request.getEndTime(), request.getStudentId());
+        Timetable timetable = new Timetable(request.getWeek(),request.getDay(), request.getStartTime(), request.getEndTime(), request.getStudentId());
         return ResponseEntity.ok(timetableService.createTimetable(timetable));
     }
 
@@ -41,14 +41,21 @@ public class TimetableController {
     }
 
     //특정 학생 특정 요일 시간표 불러오기
-    @GetMapping("/{id}/search")
+    @GetMapping("/{id}/search/day")
     public ResponseEntity<Timetable> searchTimetable(@PathVariable("id") final int id, @RequestParam("day") final String day) {
         Timetable timetable = timetableService.findTimetableByDay(id, day).get();
         return ResponseEntity.ok(timetable);
     }
 
+    //특정 학생 특정 주 시간표 불러오기
+    @GetMapping("/{id}/search/week")
+    public ResponseEntity<Timetable> searchTimetable(@PathVariable("id") final int id, @RequestParam("week") final int week) {
+        Timetable timetable = timetableService.findTimetableByWeek(id, week).get();
+        return ResponseEntity.ok(timetable);
+    }
+
     //특정 요일 시간표 조회
-    @GetMapping("/search")
+    @GetMapping("/search/day")
     public ResponseEntity<List<Timetable>> searchTimetableByDay(@RequestParam("day") final String day) {
         return ResponseEntity.ok(timetableService.findAllByDay(day));
 
@@ -57,14 +64,15 @@ public class TimetableController {
     //특정 학생 특정 요일 수정
     @PatchMapping("/{id}/search")
     public ResponseEntity<Integer> updateDay(@PathVariable("id") final int studentId, @RequestParam("day") final String day, @RequestBody final TimetableRequest request) {
-        Timetable timetable = new Timetable(request.getDay(), request.getStartTime(), request.getEndTime(), studentId);
+        Timetable timetable = new Timetable(request.getWeek(), request.getDay(), request.getStartTime(), request.getEndTime(), studentId);
         return ResponseEntity.ok(timetableService.updateDay(day, timetable));
     }
 
     //특정 학생 시간 수정
     @PatchMapping("/{id}")
     public ResponseEntity<Integer> updateTime(@PathVariable("id") final int studentId, @RequestBody final TimetableRequest request) {
-        Timetable timetable = new Timetable(request.getDay(), request.getStartTime(), request.getEndTime(), studentId);
+        Timetable timetable = new Timetable(request.getWeek(), request.getDay(), request.getStartTime(), request.getEndTime(), studentId);
+        System.out.println(timetable.getWeek());
         System.out.println(timetable.getDay());
         System.out.println(timetable.getStartTime());
         System.out.println(timetable.getEndTime());

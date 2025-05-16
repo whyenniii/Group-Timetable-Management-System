@@ -1,6 +1,7 @@
 package dbclass.grouptimetablemanagementsystem.timetable;
 
 public class TimetableRequest {
+    private int week;
     private String day;
     private int startTime;
     private int endTime;
@@ -8,11 +9,20 @@ public class TimetableRequest {
 
     public TimetableRequest() {}
 
-    public TimetableRequest(String day, int startTime, int endTime, int studentId) {
+    public TimetableRequest(final int week, final String day, final int startTime, final int endTime, final int studentId) {
+        this.week = week;
         this.day = day;
         this.startTime = startTime;
         this.endTime = endTime;
         this.studentId = studentId;
+    }
+
+    public int getWeek() {
+        return week;
+    }
+
+    public void setWeek(int week) {
+        this.week = week;
     }
 
     public String getDay() {

@@ -43,4 +43,8 @@ public class TimetableService {
     public List<Timetable> findAllByDay(final String day) {
         return timetableRepository.findAllByday(day);
     }
+
+    public Optional<Timetable> findTimetableByWeek(final int studentId, final int week) {
+        return timetableRepository.findByWeek(studentId, week);
+    }
 }
