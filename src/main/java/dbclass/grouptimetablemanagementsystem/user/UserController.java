@@ -35,15 +35,15 @@ public class UserController {
         return ResponseEntity.ok(userService.findUsers());
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<User> getUser(@PathVariable("id") final Long id) {
-        Optional<User> user = userService.findUserById(id);
+    @GetMapping("/{userNumber}")
+    public ResponseEntity<User> getUser(@PathVariable("userNumber") final int userNumber) {
+        Optional<User> user = userService.findUserByUserNumber(userNumber);
         return user.isPresent() ? ResponseEntity.ok(user.get()) : ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable("id") final Long id) {
-        userService.deleteCustomer(id);
+    @DeleteMapping("/{userNumber}")
+    public ResponseEntity<String> deleteUser(@PathVariable("userNumber") final int userNumber) {
+        userService.deleteCustomer(userNumber);
         return ResponseEntity.ok("사용자 정보 삭제 성공");
     }
 }
