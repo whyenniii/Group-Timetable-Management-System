@@ -72,7 +72,7 @@ public class JdbcTemplateTimetableRepository implements TimetableRepository {
     @Override
     public int updateTime(final Timetable timetable) {
         String sql = "UPDATE timetable SET start_time = ? , end_time = ? WHERE student_id = ? and day = ? ";
-        return jdbcTemplate.update(sql, timetable.getStartTime(), timetable.getEndTime(), timetable.getDay(), timetable.getStudentId());
+        return jdbcTemplate.update(sql, timetable.getStartTime(), timetable.getEndTime(), timetable.getStudentId(), timetable.getDay());
     }
 
     @Override
