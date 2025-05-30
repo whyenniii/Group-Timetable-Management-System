@@ -28,6 +28,8 @@ public class JdbcTemplateUserRepository implements UserRepository {
 
         jdbcTemplate.update(connection -> {
             PreparedStatement pstmt = connection.prepareStatement(sql, new String[]{"id"});
+            System.out.println("save: " + user.getUserNumber());
+            System.out.println("save: " + user.getUserName());
             pstmt.setInt(1, user.getUserNumber());
             pstmt.setString(2, user.getUserName());
             return pstmt;
@@ -39,12 +41,12 @@ public class JdbcTemplateUserRepository implements UserRepository {
     }
 
     @Override
-    public Optional<User> findById(final Long id) {
-        String sql = "SELECT * FROM users WHERE id = ?";
+    public Optional<User> findByUserNumber(final int userNumber) {
+        String sql = "SELECT * FROM users WHERE user_ number = ?";
 
         try {
-            User user = jdbcTemplate.queryForObject(sql, rowMapper(), id);
-            System.out.println("findById: " + user.getId());
+            User user = jdbcTemplate.queryForObject(sql, rowMapper(), userNumber);
+            System.out.println("findByUserNumber: " + user.getUserNumber());
             return Optional.of(user);
         } catch (EmptyResultDataAccessException e) {
             return Optional.empty();
@@ -59,15 +61,16 @@ public class JdbcTemplateUserRepository implements UserRepository {
 
     @Override
     public int update(final User user) {
-        String sql = "UPDATE users SET user_number = ?, user_name = ? WHERE id = ?";
+        String sql = "UPDATE users SET user_number = ?, user_name = ? WHERE user_number= ?";
         return jdbcTemplate.update(sql, user.getUserNumber(), user.getUserName(), user.getId());
     }
 
     @Override
-    public int deleteById(final Long id) {
-        String sql = "DELETE FROM users WHERE id = ?";
-        return jdbcTemplate.update(sql, id);
+    public int deleteByUserNumber(final int userNumber) {
+        String sql = "DELETE FROM users WHERE user_number = ?";
+        return jdbcTemplate.update(sql, userNumber);
     }
+
 
     private RowMapper<User> rowMapper() {
         return (rs, rowNum) -> new User(

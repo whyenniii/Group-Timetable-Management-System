@@ -24,7 +24,7 @@ class JdbcTemplateUserRepositoryTest {
 
         User createUser = userRepository.save(user);
 
-        User findUser = userRepository.findById(createUser.getId()).get();
+        User findUser = userRepository.findByUserNumber(createUser.getUserNumber()).get();
         assertThat(findUser).isEqualTo(createUser);
     }
 
@@ -35,7 +35,7 @@ class JdbcTemplateUserRepositoryTest {
 
         createUser.setUserNumber(2022);
         userRepository.update(createUser);
-        User updatedUser = userRepository.findById(createUser.getId()).get();
+        User updatedUser = userRepository.findByUserNumber(createUser.getUserNumber()).get();
         assertThat(updatedUser).isEqualTo(createUser);
     }
 
@@ -62,7 +62,7 @@ class JdbcTemplateUserRepositoryTest {
         User user1 = new User(20221023, "신보연");
 
         User createUser = userRepository.save(user1);
-        userRepository.deleteById(createUser.getId());
+        userRepository.deleteByUserNumber(createUser.getUserNumber());
 
         assertThat(userRepository.findById(createUser.getId())).isEmpty();
     }

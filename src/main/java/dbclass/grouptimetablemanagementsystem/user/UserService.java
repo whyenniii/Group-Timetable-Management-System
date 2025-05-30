@@ -11,6 +11,9 @@ public class UserService {
     }
 
     User createUser(final User user) {
+        if (userRepository.findByUserNumber(user.getUserNumber()).isPresent()) {
+            throw new IllegalArgumentException("이미 존재하는 학번입니다: " + user.getUserNumber());
+        }
         return userRepository.save(user);
     }
 
@@ -18,11 +21,11 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    Optional<User> findUserById(final Long id) {
-        return userRepository.findById(id);
+    Optional<User> findUserByUserNumber(final int userNumber) {
+        return userRepository.findByUserNumber(userNumber);
     }
 
-    public int deleteCustomer(final Long id) {
-        return userRepository.deleteById(id);
+    public int deleteCustomer(final int userNumber) {
+        return userRepository.deleteByUserNumber(userNumber);
     }
 }
