@@ -76,9 +76,15 @@ public class JdbcTemplateTimetableRepository implements TimetableRepository {
     }
 
     @Override
-    public int delete(final int id) {
+    public int deleteByStudentId(final int id) {
         String sql = "DELETE FROM timetable WHERE student_id = ?";
         return jdbcTemplate.update(sql, id);
+    }
+
+    @Override
+    public int delete(final int id, final Timetable timetable) {
+        String sql = "DELETE FROM timetable WHERE id = ?";
+        return jdbcTemplate.update(sql, id, timetable.getId());
     }
 
     @Override
