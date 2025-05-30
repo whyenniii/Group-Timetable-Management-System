@@ -1,5 +1,6 @@
-package dbclass.grouptimetablemanagementsystem.user;
+package dbclass.grouptimetablemanagementsystem.user.repository;
 
+import dbclass.grouptimetablemanagementsystem.user.User;
 import java.util.List;
 import java.util.Optional;
 
