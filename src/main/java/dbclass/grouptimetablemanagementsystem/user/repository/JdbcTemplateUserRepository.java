@@ -1,7 +1,6 @@
 package dbclass.grouptimetablemanagementsystem.user.repository;
 
 import dbclass.grouptimetablemanagementsystem.user.User;
-import dbclass.grouptimetablemanagementsystem.user.UserRepository;
 import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.Optional;
@@ -42,7 +41,7 @@ public class JdbcTemplateUserRepository implements UserRepository {
 
     @Override
     public Optional<User> findByUserNumber(final int userNumber) {
-        String sql = "SELECT * FROM users WHERE user_ number = ?";
+        String sql = "SELECT * FROM users WHERE user_number = ?";
 
         try {
             User user = jdbcTemplate.queryForObject(sql, rowMapper(), userNumber);
