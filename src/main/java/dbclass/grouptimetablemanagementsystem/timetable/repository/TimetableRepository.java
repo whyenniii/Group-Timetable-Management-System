@@ -17,7 +17,9 @@ public interface TimetableRepository {
 
     int updateTime(final Timetable timetable);
 
-    int delete(final int id);
+    int delete(final int id, final Timetable timetable);
+
+    int deleteByStudentId(final int studentId);
 
     List<Timetable> findAllByday(String day);
 

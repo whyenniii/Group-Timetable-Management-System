@@ -36,8 +36,12 @@ public class TimetableService {
         return timetableRepository.updateTime(timetable);
     }
 
-    public int deleteTimetable(final int id) {
-        return timetableRepository.delete(id);
+    public int deleteTimetableById(final int id) {
+        return timetableRepository.deleteByStudentId(id);
+    }
+
+    public int deleteTimetable(final int id, final Timetable timetable) {
+        return timetableRepository.delete(id, timetable);
     }
 
     public List<Timetable> findAllByDay(final String day) {
