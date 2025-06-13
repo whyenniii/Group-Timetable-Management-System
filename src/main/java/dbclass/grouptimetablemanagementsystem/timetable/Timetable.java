@@ -17,7 +17,15 @@ public class Timetable {
         this.studentId = studentId;
     }
 
-    public Timetable(final Long id, final int week, final String day, final int startTime, final int endTime, final int studentId) {
+    public Timetable(final Long id, final int week, final String day, final int startTime, final int endTime) {
+        this.id = id;
+        this.week = week;
+        this.day = day;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
+
+    public Timetable(Long id, int week, String day, int startTime, int endTime, int studentId) {
         this.id = id;
         this.week = week;
         this.day = day;
@@ -79,11 +87,10 @@ public class Timetable {
         return "Timetable { " +
                 "id = " + id +
                 ", week = " + week +
-                ", day = " + day + '\'' +
+                ", day = " + day +
                 ", startTime = " + startTime +
                 ", endTime = " + endTime +
                 ", studentId = " + studentId +
                 " }";
     }
-
 }

@@ -1,20 +1,33 @@
 package dbclass.grouptimetablemanagementsystem.timetable;
 
 public class TimetableRequest {
+    private Long tableId;
+
+
     private int week;
     private String day;
     private int startTime;
     private int endTime;
     private int studentId;
 
-    public TimetableRequest() {}
+    public TimetableRequest() {
+    }
 
-    public TimetableRequest(final int week, final String day, final int startTime, final int endTime, final int studentId) {
+    public TimetableRequest(final Long tableId, final int week, final String day, final int startTime, final int endTime, final int studentId) {
+        this.tableId = tableId;
         this.week = week;
         this.day = day;
         this.startTime = startTime;
         this.endTime = endTime;
         this.studentId = studentId;
+    }
+
+    public Long getTableId() {
+        return tableId;
+    }
+
+    public void setTableId(Long tableId) {
+        this.tableId = tableId;
     }
 
     public int getWeek() {

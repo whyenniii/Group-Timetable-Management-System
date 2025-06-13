@@ -42,6 +42,7 @@ public class TimetableController {
         return ResponseEntity.ok(timetableService.getTimetableByStudentId(id));
     }
 
+
     //특정 학생 특정 요일 시간표 불러오기
     @GetMapping("/{id}/search/day")
     public ResponseEntity<Timetable> searchTimetable(@PathVariable("id") final int id,
@@ -77,15 +78,10 @@ public class TimetableController {
 
     //특정 학생 시간 수정
     @PatchMapping("/{id}")
-    public ResponseEntity<Integer> updateTime(@PathVariable("id") final int studentId,
+    public ResponseEntity<Integer> updateTime(@PathVariable("id") final long tableId,
                                               @RequestBody final TimetableRequest request) {
-        Timetable timetable = new Timetable(request.getWeek(), request.getDay(), request.getStartTime(),
-                request.getEndTime(), studentId);
-        System.out.println(timetable.getWeek());
-        System.out.println(timetable.getDay());
-        System.out.println(timetable.getStartTime());
-        System.out.println(timetable.getEndTime());
-        System.out.println(timetable.getStudentId());
+        Timetable timetable = new Timetable(tableId, request.getWeek(), request.getDay(), request.getStartTime(), request.getEndTime());
+        System.out.println(timetable);
         return ResponseEntity.ok(timetableService.updateTime(timetable));
     }
 
