@@ -47,14 +47,7 @@ https://daisy.wisoft.io/project/timetable/
 | 김철수 | 월 | 10:00 | 12:00 | ✅ 홍길동과 겹침 |
 | 이영희 | 월 | 13:00 | 14:00 | ❌ 겹치지 않음 |
 
-### 🎨 스타일 예시
-
-```css
-.overlap-slot {
-  background-color: #ff6961;
-  border: 1px solid #cc0000;
-}
-```
+<br />
 
 #### <특정 학생 시간표 조회/수정/삭제>
 <img width="356" alt="image" src="https://github.com/user-attachments/assets/17cccf2c-e1ee-46db-9a4d-49d20a377da5" />
