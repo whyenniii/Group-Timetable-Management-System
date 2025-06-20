@@ -29,15 +29,35 @@ https://daisy.wisoft.io/project/timetable/
 
 <br />
 
-### 📊 화면 구성
+### 🗓️ 화면 구성
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/ce30cd4c-ed21-43b4-b1e7-5ebba1ac938e" />
-<img width="523" alt="image" src="https://github.com/user-attachments/assets/ee782baf-804d-4381-b36b-4567b8d3c7f1" />
+
+</br>
+
+#### <시간표 겹침 강조 기능>
+<img width="523" alt="overlap-example" src="https://github.com/user-attachments/assets/ee782baf-804d-4381-b36b-4567b8d3c7f1" />
+
+> 📌 **겹치는 시간대는 배경색을 진하게 표시하여 시각적으로 표현합니다.**
+
+### ✅ 겹침 예시
+
+| 학생 | 요일 | 시작 | 종료 | 겹침 여부 |
+|------|------|------|------|-------------|
+| 홍길동 | 월 | 09:00 | 11:00 | ✅ 김철수와 겹침 |
+| 김철수 | 월 | 10:00 | 12:00 | ✅ 홍길동과 겹침 |
+| 이영희 | 월 | 13:00 | 14:00 | ❌ 겹치지 않음 |
+
+### 🎨 스타일 예시
+
+```css
+.overlap-slot {
+  background-color: #ff6961;
+  border: 1px solid #cc0000;
+}
+```
+
+#### <특정 학생 시간표 조회/수정/삭제>
 <img width="356" alt="image" src="https://github.com/user-attachments/assets/17cccf2c-e1ee-46db-9a4d-49d20a377da5" />
-
-<p>	•	컬러 블록: 등록된 수업/일정 시간 </br>
-	  •	진하게 표시된 블록: 다른 사람과 시간이 겹치는 시간대
-</p>
-
 <br />
 
 ## 🗂️ APIs
