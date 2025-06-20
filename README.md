@@ -1,6 +1,9 @@
 <div align="center">
 
-### Database2 [Reamd.me](http://reamd.me/) ✅
+### 배포 
+https://daisy.wisoft.io/project/timetable/
+<br/>
+### Database2 Readme.md ✅
 
 <img src="https://img.shields.io/badge/-readme.md-important?style=flat&logo=google-chrome&logoColor=white" /> <img src="https://img.shields.io/badge/-tech blog-blue?style=flat&logo=google-chrome&logoColor=white" /> <img src="https://img.shields.io/badge/release-v0.0.0-yellow?style=flat&logo=google-chrome&logoColor=white" />
 <br/> <img src="https://img.shields.io/badge/Project Period-2025.03.14~2025.06.20-green?style=flat&logo=&logoColor=white" />
@@ -19,12 +22,14 @@
 <br />
 
 ### 화면 구성
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/ce30cd4c-ed21-43b4-b1e7-5ebba1ac938e" />
+<img width="523" alt="image" src="https://github.com/user-attachments/assets/ee782baf-804d-4381-b36b-4567b8d3c7f1" />
+<img width="356" alt="image" src="https://github.com/user-attachments/assets/17cccf2c-e1ee-46db-9a4d-49d20a377da5" />
 
 <br />
 
 ## 🗂️ APIs
-
-작성한 API
+Postman 사용
 
 <br />
 
@@ -44,13 +49,6 @@
 
 <br />
 
-## 🛠️ 프로젝트 아키텍쳐
-
-<br />
-
-## 🤔 기술적 이슈와 해결 과정
-
-<br />
 
 ## 💁‍♂️ 프로젝트 팀원
 |Backend|Backend|                   Backend                    |
