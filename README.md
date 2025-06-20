@@ -19,19 +19,29 @@ https://daisy.wisoft.io/project/timetable/
 : 자신의 시간표를 등록하고 일정 사용자와 그룹을 만들면, <br />
 시간표를 겹쳐주어 미팅이나 세미나 일정을 한 눈에 확인할 수 있는 시스템.
 
+</br>
+ 
+### 📌 사용 목적
+•	그룹 시간표에서 겹치는 시간을 한눈에 파악할 수 있도록 시각화 </br>
+•	회의나 협업 가능 시간을 찾기 쉽게 만들기 위한 디자인   </br>
+•	일정 충돌 방지 및 가시성 향상    </br>
+
+
 <br />
 
-### 화면 구성
+### 📊 화면 구성
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/ce30cd4c-ed21-43b4-b1e7-5ebba1ac938e" />
 <img width="523" alt="image" src="https://github.com/user-attachments/assets/ee782baf-804d-4381-b36b-4567b8d3c7f1" />
 <img width="356" alt="image" src="https://github.com/user-attachments/assets/17cccf2c-e1ee-46db-9a4d-49d20a377da5" />
+
+<p>	•	컬러 블록: 등록된 수업/일정 시간 </br>
+	  •	진하게 표시된 블록: 다른 사람과 시간이 겹치는 시간대
+</p>
 
 <br />
 
 ## 🗂️ APIs
 Postman 사용
-
-<br />
 
 ## 📘 User API
 
