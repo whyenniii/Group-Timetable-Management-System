@@ -33,6 +33,74 @@ Postman 사용
 
 <br />
 
+## 📘 User API
+
+### 🔹 `/api/users`
+
+| 메서드      | URL                       | 설명           | 요청 바디                                       | 응답 예시            |
+| -------- | ------------------------- | ------------ | ------------------------------------------- | ---------------- |
+| `POST`   | `/api/users`              | 사용자 등록       | `{ "userNumber": int, "userName": string }` | 등록된 사용자 JSON     |
+| `GET`    | `/api/users`              | 전체 사용자 목록 조회 | 없음                                          | 사용자 리스트 JSON     |
+| `GET`    | `/api/users/{userNumber}` | 특정 사용자 조회    | 없음                                          | 사용자 JSON or 404  |
+| `DELETE` | `/api/users/{userNumber}` | 사용자 삭제       | 없음                                          | `"사용자 정보 삭제 성공"` |
+
+---
+
+## 📘 Timetable API
+
+### 🔹 `/api/timetables`
+
+| 메서드      | URL                                       | 설명                  | 요청 바디 / 파라미터                                                                                       | 응답 예시           |
+| -------- | ----------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------- | --------------- |
+| `POST`   | `/api/timetables`                         | 시간표 등록              | `{ "week": int, "day": string, "startTime": "HH:mm:ss", "endTime": "HH:mm:ss", "studentId": int }` | 등록된 시간표 JSON    |
+| `GET`    | `/api/timetables`                         | 전체 시간표 조회           | 없음                                                                                                 | 시간표 리스트 JSON    |
+| `GET`    | `/api/timetables/{id}`                    | 특정 학생 시간표 조회        | `id`: 학생 번호                                                                                        | 시간표 리스트 JSON    |
+| `GET`    | `/api/timetables/{id}/search/day?day=월`   | 특정 학생의 특정 요일 시간표 조회 | 파라미터: `day`                                                                                        | 시간표 JSON        |
+| `GET`    | `/api/timetables/{id}/search/week?week=2` | 특정 학생의 특정 주차 시간표 조회 | 파라미터: `week`                                                                                       | 시간표 JSON        |
+| `GET`    | `/api/timetables/search/day?day=화`        | 모든 학생의 특정 요일 시간표 조회 | 파라미터: `day`                                                                                        | 시간표 리스트 JSON    |
+| `PATCH`  | `/api/timetables/{id}/search?day=월`       | 특정 학생의 특정 요일 시간표 수정 | 바디에 수정 정보 포함                                                                                       | 수정 건 수          |
+| `PATCH`  | `/api/timetables/{id}`                    | 특정 학생의 시간 수정        | `{ week, day, startTime, endTime }`                                                                | 수정 건 수          |
+| `DELETE` | `/api/timetables/{id}`                    | 특정 학생의 시간표 전체 삭제    | 없음                                                                                                 | `"고객 정보 삭제 성공"` |
+| `DELETE` | `/api/timetables/{id}/detail`             | 특정 학생의 특정 시간표 삭제    | `{ week, day, startTime, endTime }`                                                                | `"시간표 삭제 성공"`   |
+
+---
+
+## 📊 요청 예시
+
+<details>
+<summary><strong>사용자 등록</strong></summary>
+
+```json
+POST /api/users
+{
+  "userNumber": 20230001,
+  "userName": "홍길동"
+}
+```
+
+</details>
+
+<details>
+<summary><strong>시간표 등록</strong></summary>
+
+```json
+POST /api/timetables
+{
+  "week": 1,
+  "day": "월",
+  "startTime": "09:00:00",
+  "endTime": "11:00:00",
+  "studentId": 20230001
+}
+```
+
+</details>
+
+<br />
+
+
+<br />
+
 ## ⚙ 기술 스택
 
 ### Back-end
